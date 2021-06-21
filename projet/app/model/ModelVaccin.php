@@ -5,56 +5,56 @@
 require_once 'Model.php';
 
 class ModelVaccin{
- private $vaccin_doses, $vaccin_id, $vaccin_label;
+ private $doses, $id, $label;
 
  // pas possible d'avoir 2 constructeurs
- public function __construct($vaccin_doses = NULL, $vaccin_id = NULL, $vaccin_label = NULL) {
+ public function __construct($doses = NULL, $id = NULL, $label = NULL) {
   // valeurs nulles si pas de passage de parametres
-  if (!is_null($vaccin_id)) {
-   $this->vaccin_doses = $vaccin_doses;
-   $this->vaccin_id = $vaccin_id;
-   $this->vaccin_label = $vaccin_label;
+  if (!is_null($id)) {
+   $this->doses = $doses;
+   $this->id = $id;
+   $this->label = $label;
   }
  }
- function setvaccin_doses($vaccin_doses) {
-  $this->vaccin_id = $vaccin_id;
+ function setvaccin_doses($doses) {
+  $this->id = $id;
  }
  
- function setvaccin_id($vaccin_id) {
-  $this->vaccin_id = $vaccin_id;
+ function setvaccin_id($id) {
+  $this->id = $id;
  }
  
- function setvaccin_label($vaccin_label) {
-  $this->vaccin_id = $vaccin_id;
+ function setvaccin_label($label) {
+  $this->id = $id;
  }
  
- function getvaccin_doses($vaccin_doses) {
-  $this->vaccin_id = $vaccin_id;
+ function getvaccin_id() {
+  return $this->id;
  }
- 
- function getvaccin_id($vaccin_id) {
-  $this->vaccin_id = $vaccin_id;
+
+ function getvaccin_label() {
+  return $this->label;
  }
- 
- function getvaccin_label($vaccin_label) {
-  $this->vaccin_id = $vaccin_id;
+
+ function getvaccin_doses() {
+  return $this->doses;
  }
 
 
  // retourne une liste des id
- public static function getAllId() {
-  try {
-   $database = Model::getInstance();
-   $query = "select id from vaccin";
-   $statement = $database->prepare($query);
-   $statement->execute();
-   $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
-   return $results;
-  } catch (PDOException $e) {
-   printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
-   return NULL;
+  public static function getAllId() {
+    try {
+      $database = Model::getInstance();
+      $query = "select id from vaccin";
+      $statement = $database->prepare($query);
+      $statement->execute();
+      $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
+      return $results;
+    } catch (PDOException $e) {
+      printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+      return NULL;
+    }
   }
- }
 
  public static function getMany($query) {
   try {
@@ -83,13 +83,13 @@ class ModelVaccin{
   }
  }
 
- public static function getOne($vaccin_id) {
+ public static function getOne($id) {
   try {
    $database = Model::getInstance();
    $query = "select * from vaccin where id = :id";
    $statement = $database->prepare($query);
    $statement->execute([
-     'id' => $vaccin_id
+     'id' => $id
    ]);
    $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelVaccin");
    return $results[0];
@@ -99,7 +99,7 @@ class ModelVaccin{
   }
  }
 
- public static function insert($vaccin_label, $vaccin_doses) {
+ public static function insert($label, $doses) {
   try {
    $database = Model::getInstance();
 
@@ -114,9 +114,9 @@ class ModelVaccin{
    $query = "insert into vaccin value (:id, :label, :doses)";
    $statement = $database->prepare($query);
    $statement->execute([
-     'id' => $vaccin_id,
-     'label' => $vaccin_label,
-     'doses' => $vaccin_doses,
+     'id' => $id,
+     'label' => $label,
+     'doses' => $doses,
    ]);
    return $id;
   } catch (PDOException $e) {
@@ -125,31 +125,31 @@ class ModelVaccin{
   }
  }
 
- public static function update($vaccin_id,$vaccin_doses) {
+ public static function update($id,$doses) {
   try {
    $database = Model::getInstance();
    // Mise à jour d'un tuple;
    $query = "UPDATE vaccin SET doses = :doses WHERE id = :id ";
    $statement = $database->prepare($query);
    $statement->execute([
-     'id' => $vaccin_id,
-     'doses' => $vaccin_doses,
+     'id' => $id,
+     'doses' => $doses,
    ]);
-   return $vaccin_id;
+   return $id;
   } catch (PDOException $e) {
    printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
    return -1;
   }
  }
 
- public static function delete($vaccin_id) {
+ public static function delete($id) {
   try {
    $database = Model::getInstance();
    // Suppression d'un tuple
    $query = "DELETE FROM vaccin WHERE id = :id";
    $statement = $database->prepare($query);
    $statement->execute([
-     'id' => $vaccin_id 
+     'id' => $id 
    ]);
    return $statement->rowCount();
   } catch (PDOException $e) {

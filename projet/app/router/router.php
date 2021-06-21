@@ -32,7 +32,7 @@ switch ($action) {
  case "selectFiltre" :
   ControllerVaccin::$action($args);
      
- case "vinReadAll" :
+
  case "vinReadOne" :
  case "vinReadId" :
  case "vinCreate" :
