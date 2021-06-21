@@ -28,20 +28,16 @@ class ControllerVaccin {
    require ($vue);
  }
 
- public static function vaccinReadAll($args) {
-    // ----- Construction chemin de la vue
-    $filtre = [];
-
-    foreach ($_GET as $key => $value) {
-        $filtre[] = $value;
+  // --- Liste des vins
+    public static function vaccinReadAll($args) {
+        $results = ModelVaccin::getAll();
+        // ----- Construction chemin de la vue
+        include 'config.php';
+        $vue = $root . 'app/view/vaccin/viewAll.php';
+        if (DEBUG)
+        echo ("ControllerVaccin : vaccinReadAll : vue = $vue");
+        require ($vue);
     }
-    unset($filtre[0]);
-    ModelRecolte::getRecolte($filtre);
-
-   include 'config.php';
-   $vue = $root . '/app/view/gestion des vaccins/viewAll.php';
-   require ($vue);
- }
  
  public static function vaccinInsert(){
 

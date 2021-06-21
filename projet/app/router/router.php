@@ -1,10 +1,10 @@
 
-<!-- ----- debut Router1 -->
+<!-- ----- debut Router -->
 <?php
+require ('../controller/ControllerVaccin.php');
 require ('../controller/ControllerVin.php');
 require ('../controller/ControllerProducteur.php');
-require ('../controller/ControllerCave.php');
-require ('../controller/ControllerRecolte.php');
+require ('../controller/ControllerCovid.php');
 
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
@@ -27,6 +27,11 @@ $args = $param;
 
 // --- Liste des méthodes autorisées
 switch ($action) {
+ case "vaccinReadAll" :
+ case "getVaccin" :
+ case "selectFiltre" :
+  ControllerVaccin::$action($args);
+     
  case "vinReadAll" :
  case "vinReadOne" :
  case "vinReadId" :
@@ -43,19 +48,15 @@ switch ($action) {
  case "producteurCreated" :
  case "producteurDeleted" :
   ControllerProducteur::$action($args);
- case "recolteInsert" :
- case "getRecolte" :
- case "selectFiltre" :
-  ControllerRecolte::$action($args);
  case "mesPropositions" :
-  ControllerCave::$action();
+  ControllerCovid::$action();
  break;
 
  // Tache par défaut
  default:
-  $action = "caveAccueil";
-  ControllerCave::$action();
+  $action = "covidAccueil";
+  ControllerCovid::$action();
 }
 ?>
-<!-- ----- Fin Router1 -->
+<!-- ----- Fin Router -->
 
