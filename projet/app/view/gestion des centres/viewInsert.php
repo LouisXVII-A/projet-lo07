@@ -15,14 +15,19 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
 
     <form role="form" method='get' action='router.php'>
       <div class="form-group">
-        <input type="hidden" name='action' value=>
-        <label for="id">id : </label> <select class="form-control" id='id' name='id' style="width: 100px">
+        <input type="hidden" name='action' value='5'>
+        <label for="id">id : </label> <select class="form-control" name='id' style="width: 100px">
             <?php
             foreach ($results as $id) {
              echo ("<option>$id</option>");
+             $id = $id + 1;
             }
             ?>
-        </select>
+        </select><br>
+        <label for="label">Nom du centre :</label><br>
+        <input name='label' value='Centre de vaccination de ...'><br><br>
+        <label for='adresse'>Adresse :</label><br>
+        <input name='adresse' value="120 rue du fdp">
       </div>
       <p/>
       <button class="btn btn-primary" type="submit">Envoyer</button>

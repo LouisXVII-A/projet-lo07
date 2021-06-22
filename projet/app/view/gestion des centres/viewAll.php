@@ -17,15 +17,15 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
         <tr>
           <th scope = "col">Id</th>
           <th scope = "col">Label</th>
-          <th scope = "col">Doses</th>
+          <th scope = "col">adresse</th>
         </tr>
       </thead>
       <tbody>
           <?php
           // La liste des centres est dans une variable $results             
           foreach ($results as $element) {
-           printf("<tr><td>%d</td><td>%s</td><td>%d</td><td>%.2f</td></tr>", $element->getcentre_id(), 
-             $element->getcentre_label(), $element->getcentre_doses());
+           printf("<tr><td>%d</td><td>%s</td><td>%s</td></tr>", $element->getcentre_id(), 
+             $element->getcentre_label(), $element->getcentre_adresse());
           }
           ?>
       </tbody>

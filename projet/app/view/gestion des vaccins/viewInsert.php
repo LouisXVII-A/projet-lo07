@@ -7,13 +7,13 @@ require ($root . '/app/view/fragment/fragmentCaveHeader.html');
 <body>
   <div class="container">
       <?php
-      include $root . '/app/view/fragment/fragmentCaveMenu.html';
-      include $root . '/app/view/fragment/fragmentCaveJumbotron.html';
+      include $root . '/app/view/fragment/fragmentCovidMenu.html';
+      include $root . '/app/view/fragment/fragmentCovidJumbotron.html';
 
       // $results contient un tableau avec la liste des clés.
       ?>
 
-    <form role="form" method='get' action='router2.php'>
+    <form role="form" method='get' action='router.php'>
       <div class="form-group">
         <input type="hidden" name='action' value=>
         <label for="id">id : </label> <select class="form-control" id='id' name='id' style="width: 100px">

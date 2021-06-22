@@ -3,38 +3,38 @@ require_once 'Model.php';
 
 class ModelCentre {
     
-    private $doses, $id, $label;
+    private $adresse, $id, $label;
     
-    public function __construct($doses = NULL, $id = NULL, $label = NULL) {
+    public function __construct($adresse = NULL, $id = NULL, $label = NULL) {
     // valeurs nulles si pas de passage de parametres
     if (!is_null($id)) {
-     $this->doses = $doses;
+     $this->adresse = $adresse;
      $this->id = $id;
      $this->label = $label;
     }
     }
     
-    function setcentre_doses($doses) {
-    $this->id = $id;
+    function setcentre_adresse($adresse) {
+    $this->adresse = $adresse;
     }
  
     function setcentre_id($id) {
     $this->id = $id;
     }
     
-    function setcenter_label($label) {
-    $this->id = $id;
+    function setcentre_label($label) {
+    $this->label = $label;
     }
     
-    function getcentre_doses() {
-    return $this->doses;
+    function getcentre_adresse() {
+    return $this->adresse;
     }
  
-    function getvaccin_id() {
+    function getcentre_id() {
     return $this->id;
     }
     
-    function getcenter_label() {
+    function getcentre_label() {
     return $this->label;
     }
     
@@ -96,7 +96,7 @@ class ModelCentre {
      }
     }
 
-    public static function insert($label, $doses) {
+    public static function insert($label, $adresse) {
      try {
       $database = Model::getInstance();
 
@@ -108,12 +108,12 @@ class ModelCentre {
       $id++;
 
       // ajout d'un nouveau tuple;
-      $query = "insert into centre value (:id, :label, :doses)";
+      $query = "insert into centre value (:id, :label, :adresse)";
       $statement = $database->prepare($query);
       $statement->execute([
         'id' => $id,
         'label' => $label,
-        'doses' => $doses,
+        'adresse' => $adresse,
       ]);
       return $id;
      } catch (PDOException $e) {
@@ -122,15 +122,15 @@ class ModelCentre {
      }
     }
 
-    public static function update($id,$doses) {
+    public static function update($id,$adresse) {
      try {
       $database = Model::getInstance();
       // Mise à jour d'un tuple;
-      $query = "UPDATE centre SET doses = :doses WHERE id = :id ";
+      $query = "UPDATE centre SET adresse = :adresse WHERE id = :id ";
       $statement = $database->prepare($query);
       $statement->execute([
         'id' => $id,
-        'doses' => $doses,
+        'adresse' => $adresse,
       ]);
       return $id;
      } catch (PDOException $e) {

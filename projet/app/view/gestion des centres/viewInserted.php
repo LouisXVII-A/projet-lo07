@@ -34,7 +34,7 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
      echo("<ul>");
      echo ("<li>id = " . $results . "</li>");
      echo ("<li>Nom du centre = " . $_GET['label'] . "</li>");
-     echo ("<li>Nombre de doses = " . $_GET['doses'] . "</li>");
+     echo ("<li>Nombre de adresse = " . $_GET['adresse'] . "</li>");
      echo("</ul>");
     } else {
      echo ("<h3>Problème d'insertion du centre.0</h3>");
@@ -47,7 +47,7 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
     <!-- ----- fin viewInserted -->    
     '>        
         <label for="id">Nom du centre : </label><input type="text" name='label' size='75' value='Suce'>                           
-        <label for="id">Nombre de doses : </label><input type="text" name='doses' value='Pute'>            
+        <label for="id">Nombre de adresse : </label><input type="text" name='adresse' value='Pute'>            
       </div>
       <p/>
       <button class="btn btn-primary" type="submit">Envoyer</button>
