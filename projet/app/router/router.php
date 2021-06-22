@@ -3,7 +3,7 @@
 <?php
 require ('../controller/ControllerVaccin.php');
 require ('../controller/ControllerVin.php');
-require ('../controller/ControllerProducteur.php');
+require ('../controller/ControllerCentre.php');
 require ('../controller/ControllerCovid.php');
 
 // --- récupération de l'action passée dans l'URL
@@ -32,6 +32,12 @@ switch ($action) {
  case "vaccinCreated" :  
  case "selectFiltre" :
   ControllerVaccin::$action($args);
+
+ case "centreReadAll" :
+ case "centreCreate" :
+ case "centreCreated" :  
+ case "selectFiltre" :
+  ControllerCentre::$action($args);
      
 
  case "vinReadOne" :
