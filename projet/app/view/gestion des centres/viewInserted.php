@@ -26,10 +26,7 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
     include $root . '/app/view/fragment/fragmentCovidFooter.html';
     ?>
     <!-- ----- fin viewInserted -->          
-  
-  <?php include $root . '/app/view/fragment/fragmentCovidFooter.html'; ?>
-
-<!-- ----- fin viewInsert -->
+ 
 
 
 
