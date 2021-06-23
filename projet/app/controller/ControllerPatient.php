@@ -1,7 +1,7 @@
 <?php
 require_once '../model/ModelPatient.php';
 
-class Controllerpatient {
+class ControllerPatient {
     
     public static function selectFiltre($args) {
    // ----- Construction chemin de la vue
