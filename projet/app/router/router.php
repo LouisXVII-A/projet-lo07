@@ -39,6 +39,12 @@ switch ($action) {
  case "selectFiltre" :
   ControllerCentre::$action($args);
      
+ case "patientReadAll" :
+ case "patientCreate" :
+ case "patientCreated" :  
+ case "selectFiltre" :
+  ControllerPatient::$action($args);
+     
 
  case "vinReadOne" :
  case "vinReadId" :
