@@ -21,14 +21,14 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
         <label for="id" class="form-label">id : </label>
         <input name="id" class="form-control"><br><br>
         
-        <label for="label" class="form-label">Ville du patient :</label><br>
-        <input name='label' value='Troyes' class="form-control"><br><br>
+        <label for='nom' class="form-label">Nom du patient :</label><br>
+        <input name='nom' value="Baroin" class="form-control">
         
         <label for='prenom' class="form-label">Prénom du patient :</label><br>
         <input name='prenom' value="François" class="form-control">
         
-        <label for='nom' class="form-label">Nom du patient :</label><br>
-        <input name='nom' value="Baroin" class="form-control">
+        <label for="ville" class="form-label">Ville du patient :</label><br>
+        <input name='ville' value='Troyes' class="form-control"><br><br> 
         
       </div>
       <p/>

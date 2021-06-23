@@ -14,9 +14,9 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
      echo ("<h3>Le nouveau patient a été ajouté </h3>");
      echo("<ul>");
      echo ("<li>id = " . $_GET['id'] . "</li>");
-     echo ("<li>Ville du patient = " . $_GET['label'] . "</li>");
-     echo ("<li>Prénom du patient = " . $_GET['prenom'] . "</li>");
      echo ("<li>Nom du patient = " . $_GET['nom'] . "</li>");
+     echo ("<li>Prénom du patient = " . $_GET['prenom'] . "</li>");
+     echo ("<li>ille du patient = " . $_GET['ville'] . "</li>");
      echo("</ul>");
     } else {
      echo ("<h3>Problème d'insertion du patient.0</h3>");

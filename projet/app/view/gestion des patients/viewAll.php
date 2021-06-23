@@ -18,9 +18,9 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
       <thead>
         <tr>
           <th scope = "col">Id</th>
-          <th scope = "col">Ville</th>
-          <th scope = "col">Prénom</th>
           <th scope = "col">Nom</th>
+          <th scope = "col">Prénom</th>
+          <th scope = "col">Ville</th>
         </tr>
       </thead>
       <tbody>
@@ -28,7 +28,7 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
           // La liste des patients est dans une variable $results             
           foreach ($results as $element) {
            printf("<tr><td>%d</td><td>%s</td><td>%s</td><td>%s</td></tr>", 
-                $element->getpatient_id(), $element->getpatient_label(), $element->getpatient_prenom(), $element->getpatient_nom());
+                $element->getpatient_id(), $element->getpatient_nom(), $element->getpatient_prenom(), $element->getpatient_ville());
           }
           ?>
       </tbody>

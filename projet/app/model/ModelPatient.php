@@ -3,15 +3,15 @@ require_once 'Model.php';
 
 class ModelPatient {
     
-    private $id, $label, $prenom, $nom;
+    private $id, $ville, $prenom, $nom;
     
-    public function __construct($id = NULL, $label = NULL, $prenom = NULL, $nom = NULL) {
+    public function __construct($id = NULL, $nom = NULL, $prenom = NULL, $ville = NULL) {
     // valeurs nulles si pas de passage de parametres
     if (!is_null($id)) {
      $this->id = $id;
-     $this->label = $label;
-     $this->prenom = $prenom;
      $this->nom = $nom;
+     $this->prenom = $prenom;
+     $this->ville = $ville;
     }
     }
     
@@ -27,8 +27,8 @@ class ModelPatient {
     $this->id = $id;
     }
     
-    function setpatient_label($label) {
-    $this->label = $label;
+    function setpatient_ville($ville) {
+    $this->ville = $ville;
     }
     
     function getpatient_prenom() {
@@ -43,8 +43,8 @@ class ModelPatient {
     return $this->id;
     }
     
-    function getpatient_label() {
-    return $this->label;
+    function getpatient_ville() {
+    return $this->ville;
     }
     
     // retourne une liste des id
@@ -105,7 +105,7 @@ class ModelPatient {
      }
     }
 
-    public static function insert($id, $label, $prenom, $nom) {
+    public static function insert($id, $nom, $prenom, $ville) {
      try {
       $database = Model::getInstance();
 
@@ -117,13 +117,14 @@ class ModelPatient {
       $id++;
 
       // ajout d'un nouveau tuple;
-      $query = "insert into patient value (:id, :label, :prenom, :nom)";
+      $query = "insert into patient value (:id, :nom, :prenom, :ville)";
       $statement = $database->prepare($query);
       $statement->execute([
         'id' => $id,
-        'label' => $label,
-        'prenom' => $prenom,
         'nom' => $nom,
+        'prenom' => $prenom,
+        'ville' => $ville,
+        
       ]);
       return $id;
      } catch (PDOException $e) {
