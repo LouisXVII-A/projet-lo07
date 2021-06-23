@@ -3,15 +3,15 @@ require_once 'Model.php';
 
 class ModelPatient {
     
-    private $id, $ville, $prenom, $nom;
+    private $id, $adresse, $prenom, $nom;
     
-    public function __construct($id = NULL, $nom = NULL, $prenom = NULL, $ville = NULL) {
+    public function __construct($id = NULL, $nom = NULL, $prenom = NULL, $adresse = NULL) {
     // valeurs nulles si pas de passage de parametres
     if (!is_null($id)) {
      $this->id = $id;
      $this->nom = $nom;
      $this->prenom = $prenom;
-     $this->ville = $ville;
+     $this->adresse = $adresse;
     }
     }
     
@@ -27,8 +27,8 @@ class ModelPatient {
     $this->id = $id;
     }
     
-    function setpatient_ville($ville) {
-    $this->ville = $ville;
+    function setpatient_adresse($adresse) {
+    $this->adresse = $adresse;
     }
     
     function getpatient_prenom() {
@@ -43,8 +43,8 @@ class ModelPatient {
     return $this->id;
     }
     
-    function getpatient_ville() {
-    return $this->ville;
+    function getpatient_adresse() {
+    return $this->adresse;
     }
     
     // retourne une liste des id
@@ -105,7 +105,7 @@ class ModelPatient {
      }
     }
 
-    public static function insert($id, $nom, $prenom, $ville) {
+    public static function insert($id, $nom, $prenom, $adresse) {
      try {
       $database = Model::getInstance();
 
@@ -117,13 +117,13 @@ class ModelPatient {
       $id++;
 
       // ajout d'un nouveau tuple;
-      $query = "insert into patient value (:id, :nom, :prenom, :ville)";
+      $query = "insert into patient value (:id, :nom, :prenom, :adresse)";
       $statement = $database->prepare($query);
       $statement->execute([
         'id' => $id,
         'nom' => $nom,
         'prenom' => $prenom,
-        'ville' => $ville,
+        'adresse' => $adresse,
         
       ]);
       return $id;

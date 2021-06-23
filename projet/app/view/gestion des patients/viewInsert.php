@@ -27,8 +27,8 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
         <label for='prenom' class="form-label">Prénom du patient :</label><br>
         <input name='prenom' value="François" class="form-control">
         
-        <label for="ville" class="form-label">Ville du patient :</label><br>
-        <input name='ville' value='Troyes' class="form-control"><br><br> 
+        <label for="adresse" class="form-label">Lieu de vaccination du patient :</label><br>
+        <input name='adresse' value='Troyes' class="form-control"><br><br> 
         
       </div>
       <p/>

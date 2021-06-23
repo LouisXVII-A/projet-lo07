@@ -16,7 +16,7 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
      echo ("<li>id = " . $_GET['id'] . "</li>");
      echo ("<li>Nom du patient = " . $_GET['nom'] . "</li>");
      echo ("<li>Prénom du patient = " . $_GET['prenom'] . "</li>");
-     echo ("<li>ille du patient = " . $_GET['ville'] . "</li>");
+     echo ("<li>Lieu de vaccination du patient = " . $_GET['adresse'] . "</li>");
      echo("</ul>");
     } else {
      echo ("<h3>Problème d'insertion du patient.0</h3>");
