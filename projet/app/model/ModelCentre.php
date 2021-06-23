@@ -96,7 +96,7 @@ class ModelCentre {
      }
     }
 
-    public static function insert($label, $adresse) {
+    public static function insert($id, $label, $adresse) {
      try {
       $database = Model::getInstance();
 
