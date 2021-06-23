@@ -49,8 +49,7 @@ class ControllerPatient {
     public static function patientCreated($args) {
         // ajouter une validation des informations du formulaire
         $results = ModelPatient::insert(
-            htmlspecialchars($_GET['id']), htmlspecialchars($_GET['label']), htmlspecialchars($_GET['adresse'])
-        );
+            htmlspecialchars($_GET['id']), htmlspecialchars($_GET['label']), htmlspecialchars($_GET['prenom']), htmlspecialchars($_GET['nom']));
         // ----- Construction chemin de la vue
         include 'config.php';
         $vue = $root . '/app/view/gestion des patients/viewInserted.php';

@@ -3,6 +3,7 @@
 <?php
 require ('../controller/ControllerVaccin.php');
 require ('../controller/ControllerVin.php');
+require ('../controller/ControllerPatient.php');
 require ('../controller/ControllerCentre.php');
 require ('../controller/ControllerCovid.php');
 

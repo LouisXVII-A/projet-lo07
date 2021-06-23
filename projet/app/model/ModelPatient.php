@@ -3,15 +3,15 @@ require_once 'Model.php';
 
 class ModelPatient {
     
-    private $prenom, $nom, $id, $label;
+    private $id, $label, $prenom, $nom;
     
-    public function __construct($prenom = NULL, $nom = NULL, $id = NULL, $label = NULL) {
+    public function __construct($id = NULL, $label = NULL, $prenom = NULL, $nom = NULL) {
     // valeurs nulles si pas de passage de parametres
     if (!is_null($id)) {
-     $this->prenom = $prenom;
-     $this->nom = $nom;
      $this->id = $id;
      $this->label = $label;
+     $this->prenom = $prenom;
+     $this->nom = $nom;
     }
     }
     
