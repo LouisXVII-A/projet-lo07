@@ -19,9 +19,9 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
         <label for="id" class="form-label">id : </label>
         <input name="id" class="form-control"><br><br>
         <label for="label" class="form-label">Nom du centre :</label><br>
-        <input name='label' value='Centre de vaccination de ...' class="form-control"><br><br>
+        <input name='label' value='Centre de vaccination de Troyes' class="form-control"><br><br>
         <label for='adresse' class="form-label">Adresse :</label><br>
-        <input name='adresse' value="120 rue du fdp" class="form-control">
+        <input name='adresse' value="120 rue de La Tour" class="form-control">
       </div>
       <p/>
       <button class="btn btn-primary" type="submit">Envoyer</button>

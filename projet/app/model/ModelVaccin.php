@@ -17,7 +17,7 @@ class ModelVaccin{
   }
  }
  function setvaccin_doses($doses) {
-  $this->id = $id;
+  $this->doses = $doses;
  }
  
  function setvaccin_id($id) {
@@ -25,7 +25,7 @@ class ModelVaccin{
  }
  
  function setvaccin_label($label) {
-  $this->id = $id;
+  $this->label = $label;
  }
  
  function getvaccin_id() {

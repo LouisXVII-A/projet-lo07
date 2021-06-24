@@ -28,8 +28,22 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
              $element->getvaccin_label(), $element->getvaccin_doses());
           }
           ?>
+          </table>
+      
+          <!--On choisit un id à modifier et le nombre de doses à changer-->
+          
+      <form role="form" method='get' action='router.php'>
+      <div class="form-group">
+        <input type="hidden" name='action' value='vaccinChangedId'>                          
+        <label for="id">Id  : </label><input type="numer" name='id' value='2'>
+        <label for="doses">Doses : </label><input type="number" name='doses' value='2'>                
+      </div>
+      <p/>
+      <button class="btn btn-primary" type="submit">Mise à jour</button>
+    </form>
+            
       </tbody>
-    </table>
+    
   </div>
   <?php include $root . '/app/view/fragment/fragmentCovidFooter.html'; ?>
 

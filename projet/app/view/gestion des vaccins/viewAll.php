@@ -15,7 +15,7 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
     <table class = "table table-striped table-bordered">
       <thead>
         <tr>
-          <th scope = "col">Id</th>
+          <th scope = "col">ID</th>
           <th scope = "col">Label</th>
           <th scope = "col">Doses</th>
         </tr>
@@ -24,7 +24,7 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
           <?php
           // La liste des vaccins est dans une variable $results             
           foreach ($results as $element) {
-           printf("<tr><td>%d</td><td>%s</td><td>%d</td><td>%.2f</td></tr>", $element->getvaccin_id(), 
+           printf("<tr><td>%d</td><td>%s</td><td>%d</td></tr>", $element->getvaccin_id(), 
              $element->getvaccin_label(), $element->getvaccin_doses());
           }
           ?>
