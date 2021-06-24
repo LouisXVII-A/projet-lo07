@@ -51,9 +51,8 @@ class ControllerVaccin {
     // La clé est gérée par le systeme et pas par l'internaute
     public static function vaccinCreated($args) {
         // ajouter une validation des informations du formulaire
-        $results = ModelVaccin::insert( htmlspecialchars($_GET[''
-            . '']), htmlspecialchars($_GET['doses'])
-        );
+        $results = ModelVaccin::insert( htmlspecialchars($_GET['id']), htmlspecialchars($_GET['label']), htmlspecialchars($_GET['doses']));
+        
         // ----- Construction chemin de la vue
         include 'config.php';
         $vue = $root . '/app/view/gestion des vaccins/viewInserted.php';

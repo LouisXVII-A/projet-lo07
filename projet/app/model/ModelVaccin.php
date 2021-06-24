@@ -99,29 +99,28 @@ class ModelVaccin{
   }
  }
 
- public static function insert($label, $doses) {
+ public static function insert($id, $label, $doses) {
   try {
-   $database = Model::getInstance();
+      $database = Model::getInstance();
+      // recherche de la valeur de la clé = max(id) + 1
+      $query = "select max(id) from vaccin";
+      $statement = $database->query($query);
+      $tuple = $statement->fetch();
+      $id = $tuple['0'];
+      $id++;
 
-   // recherche de la valeur de la clé = max(id) + 1
-   $query = "select max(id) from vaccin";
-   $statement = $database->query($query);
-   $tuple = $statement->fetch();
-   $id = $tuple['0'];
-   $id++;
-
-   // ajout d'un nouveau tuple;
-   $query = "insert into vaccin value (:id, :label, :doses)";
-   $statement = $database->prepare($query);
-   $statement->execute([
-     'id' => $id,
-     'label' => $label,
-     'doses' => $doses,
-   ]);
-   return $id;
-  } catch (PDOException $e) {
-   printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
-   return -1;
+      // ajout d'un nouveau tuple;
+      $query = "insert into vaccin value (:id, :label, :doses)";
+      $statement = $database->prepare($query);
+      $statement->execute([
+        'id' => $id,
+        'label' => $label,
+        'doses' => $doses,
+      ]);
+      return $id;
+     } catch (PDOException $e) {
+      printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+      return -1;
   }
  }
 
