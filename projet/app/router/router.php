@@ -5,6 +5,7 @@ require ('../controller/ControllerVaccin.php');
 require ('../controller/ControllerVin.php');
 require ('../controller/ControllerPatient.php');
 require ('../controller/ControllerCentre.php');
+require ('../controller/ControllerRDV.php');
 require ('../controller/ControllerCovid.php');
 require ('../controller/ControllerStock.php');
 
@@ -52,6 +53,10 @@ switch ($action) {
  case "stockReadAll" :
  case "stockReadAlldetailed":
  ControllerStock::$action($args);
+     
+ case "rdvReadAll" :
+ case "rdvReadId" :
+ ControllerRDV::$action($args);
      
 
  case "vinReadOne" :

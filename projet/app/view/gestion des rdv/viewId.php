@@ -13,10 +13,11 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
       // $results contient un tableau avec la liste des clés.
       ?>
 
-    <form role="form" method='get' action='router.php'>
+    <form role="form" method='get' action='router2.php'>
       <div class="form-group">
         <input type="hidden" name='action' value='<?php echo($target);?>'>
-        <label for="id">id : </label> <select class="form-control" id='id' name='id' style="width: 100px">
+        <label for="id">id : </label> 
+        <select class="form-control" id='id' name='id' style="width: 100px">
             <?php
             foreach ($results as $id) {
              echo ("<option>$id</option>");
