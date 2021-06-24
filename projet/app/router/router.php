@@ -50,10 +50,8 @@ switch ($action) {
   ControllerPatient::$action($args);
      
  case "stockReadAll" :
- case "centreCreate" :
- case "centreCreated" :  
- case "selectFiltre" :
-  ControllerStock::$action($args);
+ case "stockReadAlldetailed":
+ ControllerStock::$action($args);
      
 
  case "vinReadOne" :

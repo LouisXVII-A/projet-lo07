@@ -3,7 +3,7 @@
 <?php
 require_once '../model/ModelStock.php';
 
-class ControlerStock {  
+class ControllerStock {  
  
 
  public static function selectFiltre($args) {
@@ -28,7 +28,7 @@ class ControlerStock {
    require ($vue);
  }
 
-  // --- Liste des vins
+  // --- Nombre global de doses des centres
     public static function stockReadAll($args) {
         $results = ModelStock::getAll();
         // ----- Construction chemin de la vue
@@ -39,6 +39,17 @@ class ControlerStock {
         require ($vue);
     }
  
+    // --- Liste des centres avec le nombre de doses de chaque vaccin
+    public static function stockReadAlldetailed($args) {
+        $results = ModelStock::getAlldetailed();
+        // ----- Construction chemin de la vue
+        include 'config.php';
+        $vue = $root . 'app/view/gestion des stocks/viewAlldetailed.php';
+        if (DEBUG)
+        echo ("ModelStock : stockReadAlldetailed : vue = $vue");
+        require ($vue);
+    }
+    
     // Affiche le formulaire de creation d'un stock
     public static function stockCreate($args) {
         // ----- Construction chemin de la vue
