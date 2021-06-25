@@ -5,7 +5,7 @@
 require_once 'Model.php';
 
 class ModelStock{
- private $centrenom, $quantitetot, $vaccin, $quantite;
+ private $centrenom, $quantitetot, $vaccin, $quantite, $id;
 
  // pas possible d'avoir 2 constructeurs
  public function __construct($centrenom = NULL, $quantitetot = NULL, $vaccin = NULL, $quantite = NULL) {
@@ -80,7 +80,7 @@ class ModelStock{
  public static function getAll() {
   try {
    $database = Model::getInstance();
-   $query = "SELECT centre.label as centrenom, SUM(stock.quantite) as quantitetot FROM centre, stock WHERE stock.centre_id = centre.id GROUP BY centrenom ORDER BY quantitetot DESC";
+   $query = "SELECT centre.label as centrenom, SUM(stock.quantite) as quantitetot, centre_id as id FROM centre, stock WHERE stock.centre_id = centre.id GROUP BY centrenom ORDER BY quantitetot DESC";
    $statement = $database->prepare($query);
    $statement->execute();
    $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelStock");
@@ -94,7 +94,7 @@ class ModelStock{
  public static function getAlldetailed() {
   try {
    $database = Model::getInstance();
-   $query = "SELECT centre.label as centrenom, vaccin.label as vaccin, stock.quantite as quantite, centre.id FROM vaccin, stock, centre WHERE stock.vaccin_id=vaccin.id AND stock.centre_id=centre.id AND stock.centre_id=centre_id";
+   $query = "SELECT centre.label as centrenom, vaccin.label as vaccin, stock.quantite as quantite, centre.id as id FROM vaccin, stock, centre WHERE stock.vaccin_id=vaccin.id AND stock.centre_id=centre.id AND stock.centre_id=centre_id";
    $statement = $database->prepare($query);
    $statement->execute();
    $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelStock");
