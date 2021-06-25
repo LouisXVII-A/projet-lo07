@@ -23,4 +23,4 @@ class ControllerRDV {
         if (DEBUG)
         echo ("ModelStock : rdveadAll : vue = $vue");
         require ($vue);
-}
+}}
